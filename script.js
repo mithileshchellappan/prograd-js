@@ -1,9 +1,9 @@
-const container = document.querySelector('.carousel-slide');
-const pages = document.querySelectorAll('.page');
-let counter = 0;
-const size = pages[0].clientWidth;
-const nextButton = document.querySelector('.next');
-const prevButton = document.querySelector('.prev');
+const carouselContainer = document.querySelector('.carousel-slide');
+const carouselPages = document.querySelectorAll('.page');
+let slideCounter = 0;
+const slideSize = carouselPages[0].clientWidth;
+const nextBtn = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
 const colorPickers = document.querySelectorAll('.color-choice');
 const colorLabels = document.querySelectorAll('.color-label');
 
@@ -11,30 +11,30 @@ colorPickers.forEach((picker, index) => {
     picker.addEventListener('change', (event) => {
         const changedColor = event.target.value;
         event.target.parentNode.style.backgroundColor = changedColor;
-        colorLabels[index].textContent = `Current color is ${changedColor}`;
+        colorLabels[index].textContent = `Selected color: ${changedColor}`;
     });
-});
-
-nextButton.addEventListener('click', () => {
-    if (counter >= 2) return;
-    counter++;
-    container.style.transform = `translateX(${-size * counter}px)`;
-});
-
-prevButton.addEventListener('click', () => {
-    if (counter <= 0) return;
-    counter--;
-    container.style.transform = `translateX(${-size * counter}px)`;
 });
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowRight') {
-        if (counter >= 2) return;
-        counter++;
-        container.style.transform = `translateX(${-size * counter}px)`;
+        nextMove()
     } else if (event.key === 'ArrowLeft') {
-        if (counter <= 0) return;
-        counter--;
-        container.style.transform = `translateX(${-size * counter}px)`;
+        prevMove()
     }
 });
+
+nextBtn.addEventListener('click',nextMove);
+
+prevBtn.addEventListener('click', prevMove);
+
+function prevMove(){
+    if (slideCounter <= 0) return;
+    slideCounter--;
+    carouselContainer.style.transform = `translateX(${-slideSize * slideCounter}px)`;
+}
+
+function nextMove(){
+    if (slideCounter >= 2) return;
+    slideCounter++;
+    carouselContainer.style.transform = `translateX(${-slideSize * slideCounter}px)`;
+}
