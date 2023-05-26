@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1 class="header">Rock Paper Scissors</h1>
+        <div class="score-section">
+            <div>
+                <h3>Computer</h3>
+                <h2 id="com-score">0</h2>
+            </div>
+            <div>
+                <h3>Player</h3>
+                <h2 id="player-score">0</h2>
+            </div>
+        </div>
+        <div class="main">
+            <div class="choice-section">
+                <h3>Computer</h3>
+                <img id="com-image" src="" alt="">
+            </div>
+            <div class="result">
+                <p></p>
+            </div>
+            <div class="choice-section">
+                <h3>Player</h3>
+                <img id="player-image" src="" alt="">
+                <div class="player-choice-section">
+                    <button id="rock-choice" value="rock">Rock</button>
+                    <button id="paper-choice" value="paper">Paper</button>
+                    <button id="scissor-choice" value="scissor">Scissors</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>First to 5 wins</p>
+        </div>
+        <div class="end-game">
+            <p>GAME OVER. The Winner is:</p>
+            <p class="winner"></p>
+            <button id="replay-button">Replay</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
